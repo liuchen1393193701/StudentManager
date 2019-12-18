@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-12-18 19:47:15 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="com.lc.pojo.Student" table="student" catalog="pro" optimistic-lock="version">
+        <id name="sid" type="int">
+            <column name="sid" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="clazz" class="com.lc.pojo.Clazz" fetch="select">
+            <column name="cno" />
+        </many-to-one>
+        <property name="sname" type="string">
+            <column name="sname" length="20" />
+        </property>
+        <property name="sex" type="string">
+            <column name="sex" length="20" />
+        </property>
+        <property name="idcard" type="string">
+            <column name="idcard" length="20" />
+        </property>
+        <property name="intime" type="date">
+            <column name="intime" length="10" />
+        </property>
+        <property name="sphone" type="string">
+            <column name="sphone" length="20" />
+        </property>
+        <property name="saddress" type="string">
+            <column name="saddress" length="50" />
+        </property>
+        <property name="school" type="string">
+            <column name="school" length="50" />
+        </property>
+        <property name="smajor" type="string">
+            <column name="smajor" length="50" />
+        </property>
+        <property name="outtime" type="date">
+            <column name="outtime" length="10" />
+        </property>
+        <set name="tests" table="test" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sid" />
+            </key>
+            <one-to-many class="com.lc.pojo.Test" />
+        </set>
+    </class>
+</hibernate-mapping>

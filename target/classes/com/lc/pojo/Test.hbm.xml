@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-12-18 19:47:15 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="com.lc.pojo.Test" table="test" catalog="pro" optimistic-lock="version">
+        <id name="tid" type="int">
+            <column name="tid" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="kaoqinrecord" class="com.lc.pojo.Kaoqinrecord" fetch="select">
+            <column name="krid" />
+        </many-to-one>
+        <many-to-one name="student" class="com.lc.pojo.Student" fetch="select">
+            <column name="sid" />
+        </many-to-one>
+        <property name="tscore" type="java.lang.Float">
+            <column name="tscore" precision="12" scale="0" />
+        </property>
+        <property name="tdate" type="date">
+            <column name="tdate" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

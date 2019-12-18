@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-12-18 19:47:15 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="com.lc.pojo.Level" table="level" catalog="pro" optimistic-lock="version">
+        <id name="lid" type="int">
+            <column name="lid" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="clazz" class="com.lc.pojo.Clazz" fetch="select">
+            <column name="cno" />
+        </many-to-one>
+        <property name="lname" type="string">
+            <column name="lname" length="20" />
+        </property>
+        <property name="month" type="string">
+            <column name="month" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

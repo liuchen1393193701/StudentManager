@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-12-18 19:47:15 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="com.lc.pojo.Clazz" table="clazz" catalog="pro" optimistic-lock="version">
+        <id name="cno" type="int">
+            <column name="cno" />
+            <generator class="assigned" />
+        </id>
+        <property name="cname" type="string">
+            <column name="cname" length="20" />
+        </property>
+        <set name="students" table="student" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cno" />
+            </key>
+            <one-to-many class="com.lc.pojo.Student" />
+        </set>
+        <set name="levels" table="level" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cno" />
+            </key>
+            <one-to-many class="com.lc.pojo.Level" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-12-18 19:47:15 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="com.lc.pojo.Kaoqin" table="kaoqin" catalog="pro" optimistic-lock="version">
+        <id name="kid" type="int">
+            <column name="kid" />
+            <generator class="assigned" />
+        </id>
+        <property name="kname" type="string">
+            <column name="kname" length="20" />
+        </property>
+        <set name="kaoqinrecords" table="kaoqinrecord" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="kid" />
+            </key>
+            <one-to-many class="com.lc.pojo.Kaoqinrecord" />
+        </set>
+    </class>
+</hibernate-mapping>
